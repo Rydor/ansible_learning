@@ -1,0 +1,5 @@
+aio ansible_ssh_host=104.130.225.160
+
+[aio]
+aio
+
