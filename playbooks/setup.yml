@@ -1,0 +1,11 @@
+---
+- hosts: aio
+  gather_facts: no
+  vars:
+      {plug1: '"neutron_plugin_base:\n- neutron.services.l3_router.l3_router_plugin.L3RouterPlugin\n- neutron.services.metering.metering_plugin.MeteringPlugin\n- neutron_lbaas.services.loadbalancer.plugin.LoadBalancerPluginv2"'}
+  tasks:
+  - name: Populate user_variables with lbaasv2 plugins
+    shell: echo {{plug1}} >> /etc/openstack_deploy/user_variables.yml
+#  Need to add params to point to the correct inventory file.
+#  - name: Run os-neutron-install
+#    shell: openstack-ansible /opt/rpc-openstack/openstack-ansible/playbooks/os-neutron-install.yml
