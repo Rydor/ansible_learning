@@ -1,0 +1,11 @@
+---
+- name: Install Flask
+  hosts: webservers
+  remote_user: root
+
+  tasks:
+  - name: install Flask
+    pip: name=flask state=present
+
+  - name: Install Nginx
+    apt: name=nginx state=present
